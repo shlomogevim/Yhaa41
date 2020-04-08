@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_talking"
+    app:startDestination="@id/listFragmant">
+
+    <fragment
+        android:id="@+id/listFragmant"
+        android:name="com.example.yhaa41.ListFragmant"
+        android:label="fragment_list_fragmant"
+        tools:layout="@layout/fragment_list_fragmant" >
+        <action
+            android:id="@+id/action_listFragmant_to_singleTalking"
+            app:destination="@id/singleTalking" />
+    </fragment>
+    <fragment
+        android:id="@+id/singleTalking"
+        android:name="com.example.yhaa41.SingleTalking"
+        android:label="fragment_single_talking"
+        tools:layout="@layout/fragment_single_talking" >
+        <action
+            android:id="@+id/action_singleTalking_to_listFragmant"
+            app:destination="@id/listFragmant" />
+    </fragment>
+</navigation>
