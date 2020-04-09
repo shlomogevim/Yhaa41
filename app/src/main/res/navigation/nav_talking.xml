@@ -13,6 +13,8 @@
         <action
             android:id="@+id/action_listFragmant_to_singleTalking"
             app:destination="@id/singleTalking" />
+
+
     </fragment>
     <fragment
         android:id="@+id/singleTalking"
@@ -22,5 +24,9 @@
         <action
             android:id="@+id/action_singleTalking_to_listFragmant"
             app:destination="@id/listFragmant" />
+        <argument
+            android:name="convers"
+            app:argType="com.example.yhaa41.Conversation" />
+
     </fragment>
 </navigation>

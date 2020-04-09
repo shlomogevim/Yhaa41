@@ -11,6 +11,8 @@ import kotlinx.android.synthetic.main.fragment_single_talking.*
 
 class SingleTalking : Fragment() {
 
+   var convrs: Conversation? =null
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -22,8 +24,15 @@ class SingleTalking : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         buttonSingle.setOnClickListener {
-            val action=SingleTalkingDirections.actionSingleTalkingToListFragmant()
-            Navigation.findNavController(it).navigate(action)
+           /* val action=SingleTalkingDirections.actionSingleTalkingToListFragmant()
+            Navigation.findNavController(it).navigate(action)*/
+        }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        arguments?.let {
+            convrs=SingleTalkingArgs.fromBundle(it).convers
         }
     }
 
