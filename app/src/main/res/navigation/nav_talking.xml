@@ -25,8 +25,8 @@
             android:id="@+id/action_singleTalking_to_listFragmant"
             app:destination="@id/listFragmant" />
         <argument
-            android:name="convers"
-            app:argType="com.example.yhaa41.Conversation" />
+            android:name="posi"
+            app:argType="integer" />
 
     </fragment>
 </navigation>

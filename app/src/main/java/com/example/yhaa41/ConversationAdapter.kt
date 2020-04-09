@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.list_row.view.*
 
 class ConversationAdapter(private val conversationList: ArrayList<Conversation>) :
-    RecyclerView.Adapter<ConversationAdapter.ViewHolder>(),ConversationClickListener {
+    RecyclerView.Adapter<ConversationAdapter.ViewHolder>(){
 
     fun updateConversationList(newList: ArrayList<Conversation>) {
         conversationList.clear()
@@ -29,23 +29,9 @@ class ConversationAdapter(private val conversationList: ArrayList<Conversation>)
         holder.view.discription.text = conversationList[position].description
         conversationList[position].adress?.let { holder.view.conversationIV.setImageResource(it) }
         holder.view.cardView.setOnClickListener {
-            val action=ListFragmantDirections.actionListFragmantToSingleTalking(conversationList[position])
-         Navigation.findNavController(holder.view).navigate(action)
-            /* val intent=Intent(context, OneTalking::class.java)
-             intent.putExtra("TalkNum",position)
-             Log.d("clima","Conversationadapter -> onBind -> position -> $position")
-             context.startActivity(intent)*/
-
+            val action=ListFragmantDirections.actionListFragmantToSingleTalking(position)
+            Navigation.findNavController(holder.view).navigate(action)
         }
-    }
-
-    override fun onClick(v: View) {
-        for (coversation in conversationList){
-            if (v.tag==coversation.title){
-
-            }
-        }
-
     }
 
     class ViewHolder(val view: View) : RecyclerView.ViewHolder(view)

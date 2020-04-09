@@ -12,10 +12,8 @@ import kotlinx.android.synthetic.main.fragment_list_fragmant.*
 
 
 class ListFragmant : Fragment() {
-   // private var adapter: ConversationAdapter? = null
-   // private var conversationList: ArrayList<Conversation>? = null
-   // private var layoutManager: RecyclerView.LayoutManager? = null
-    private val listAtapter=ConversationAdapter(arrayListOf())
+
+    private val listAtapter = ConversationAdapter(arrayListOf())
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,20 +25,9 @@ class ListFragmant : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        //  val talkNum = -2
-        /*      val talkNum = -1
-          when (talkNum){
-              -1->activateList()
-              in 0..99->setSpesialTalk(talkNum)
-              -2->activateWord()
-          }*/
-       // activateList()
+
     }
 
-       /* buttonList.setOnClickListener {
-            val action=ListFragmantDirections.actionListFragmantToSingleTalking()
-            Navigation.findNavController(it).navigate(action)
-        }*/
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -50,37 +37,13 @@ class ListFragmant : Fragment() {
         listAtapter.updateConversationList(conversationList)
 
         conversationRV.apply {
-            layoutManager=LinearLayoutManager(context)
-            adapter=listAtapter
+            layoutManager = LinearLayoutManager(context)
+            adapter = listAtapter
         }
 
-
-         /* layoutManager = LinearLayoutManager(context)
-              //  adapter = ConversationAdapter(context, conversationList!!)
-          adapter = ConversationAdapter( conversationList!!)
-          recyclerViewTalkingId.layoutManager = layoutManager
-          recyclerViewTalkingId.adapter = adapter
-          adapter!!.notifyDataSetChanged()*/
-
     }
-
-
-
-
-       private fun activateList() {
-          /* conversationList = ArrayList<Conversation>()
-           Helper.Page.createConverList()
-           conversationList = Helper.Page.conversList
-
-
-           layoutManager = LinearLayoutManager(this)
-           adapter = ConversationAdapter(this, conversationList!!)
-           recyclerViewTalkingId.layoutManager = layoutManager
-           recyclerViewTalkingId.adapter = adapter
-           adapter!!.notifyDataSetChanged()*/
-
-       }
 }
+
 
 /*
 
