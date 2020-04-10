@@ -21,16 +21,14 @@ class SingleTalking : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        buttonSingle.setOnClickListener {
 
-        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         arguments?.let {
            val pos=SingleTalkingArgs.fromBundle(it).posi
-            tvSingle.text=pos.toString()
+
         }
     }
 
