@@ -1,5 +1,6 @@
 package com.example.yhaa41
 
+import android.app.Activity
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -7,6 +8,7 @@ import android.util.Base64
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentActivity
 import com.example.yhaa41.Const.Companion.CURRENTSENTENCE
 import com.example.yhaa41.Const.Companion.CURRENT_PAGE
 import com.example.yhaa41.Const.Companion.FIRSTTALK
@@ -24,13 +26,12 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.io.ByteArrayOutputStream
 
-class GetAndStoreData(val context: Context) : AppCompatActivity() {
+class GetAndStoreData(context: Context) : AppCompatActivity() {
 
+    val activity = context as Activity
+  //  var myPref = getSharedPreferences(PREFS_NAME, 0)
+    var myPref = activity.getSharedPreferences(PREFS_NAME, 0)
 
-    var myPref = context.getSharedPreferences(PREFS_NAME, 0)
-   // val recogniger = getRecognizer()
-
-    //  private var talkList = getTalkingList(1)
 
 
     fun saveCurrentPage(index: Int) {
@@ -96,7 +97,7 @@ class GetAndStoreData(val context: Context) : AppCompatActivity() {
         if (index > list.size - 1) {
             index = index--
             if (index < 1) index = 1
-            Toast.makeText(context, "sorry ther is more then 6 lines", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "sorry ther is more then 6 lines", Toast.LENGTH_LONG).show()
         }
         return list[index]
     }
@@ -160,7 +161,7 @@ class GetAndStoreData(val context: Context) : AppCompatActivity() {
     private fun setToastMessage(st: String) {
         val st0 = "במשפט  :"
         val str1 = "$st there is more 6 lines"
-        Toast.makeText(context, st0 + str1, Toast.LENGTH_LONG).show()
+        Toast.makeText(this, st0 + str1, Toast.LENGTH_LONG).show()
 
 
     }
@@ -178,7 +179,7 @@ class GetAndStoreData(val context: Context) : AppCompatActivity() {
         var countItem = 0
         var talker=Talker()
         talkList1.add(countItem, talker)
-        var text = context.assets.open(currenteFile).bufferedReader().use {
+        var text = activity.assets.open(currenteFile).bufferedReader().use {
             it.readText()
         }
         text = text.replace("\r", "")
@@ -268,7 +269,7 @@ class GetAndStoreData(val context: Context) : AppCompatActivity() {
         var countItem = 0
         var talker=Talker()
         talkList1.add(countItem, talker)
-        var text = context.assets.open(currenteFile).bufferedReader().use {
+        var text = this.assets.open(currenteFile).bufferedReader().use {
             it.readText()
         }
         text = text.replace("\r", "")

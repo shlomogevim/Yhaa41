@@ -1,19 +1,21 @@
-package com.example.yhaa41
+package com.example.yhaa41.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.example.yhaa41.ConversationAdapter
+import com.example.yhaa41.Helper
+import com.example.yhaa41.R
 import kotlinx.android.synthetic.main.fragment_list_fragmant.*
 
 
 class ListFragmant : Fragment() {
 
-    private val listAtapter = ConversationAdapter(arrayListOf())
+    private val listAtapter =
+        ConversationAdapter(arrayListOf())
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

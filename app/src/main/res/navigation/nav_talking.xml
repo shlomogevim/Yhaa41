@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/listFragmant"
-        android:name="com.example.yhaa41.ListFragmant"
+        android:name="com.example.yhaa41.ui.ListFragmant"
         android:label="fragment_list_fragmant"
         tools:layout="@layout/fragment_list_fragmant" >
         <action
@@ -27,6 +27,13 @@
         <argument
             android:name="posi"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_singleTalking_to_storeData"
+            app:destination="@id/storeData" />
 
     </fragment>
+    <fragment
+        android:id="@+id/storeData"
+        android:name="com.example.yhaa41.StoreData"
+        android:label="StoreData" />
 </navigation>

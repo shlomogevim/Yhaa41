@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
+import com.example.yhaa41.ui.ListFragmantDirections
 import kotlinx.android.synthetic.main.list_row.view.*
 
 class ConversationAdapter(private val conversationList: ArrayList<Conversation>) :
@@ -29,7 +30,7 @@ class ConversationAdapter(private val conversationList: ArrayList<Conversation>)
         holder.view.discription.text = conversationList[position].description
         conversationList[position].adress?.let { holder.view.conversationIV.setImageResource(it) }
         holder.view.cardView.setOnClickListener {
-            val action=ListFragmantDirections.actionListFragmantToSingleTalking(position)
+            val action= ListFragmantDirections.actionListFragmantToSingleTalking(position)
             Navigation.findNavController(holder.view).navigate(action)
         }
     }
