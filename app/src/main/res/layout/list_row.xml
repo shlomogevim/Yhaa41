@@ -34,7 +34,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
-                    android:id="@+id/conversationIV"
+                    android:id="@+id/paraIV"
                     android:layout_width="110dp"
                     android:layout_height="110dp"
                     android:scaleType="centerCrop" />

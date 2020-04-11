@@ -1,49 +1,79 @@
 package com.example.yhaa41.ui
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.yhaa41.ConversationAdapter
 import com.example.yhaa41.Helper
 import com.example.yhaa41.R
+import com.example.yhaa41.room.Para
+import com.example.yhaa41.room.ParaDatabase
+import com.example.yhaa41.util.BaseFragment
+import com.example.yhaa41.util.ParaHelper
 import kotlinx.android.synthetic.main.fragment_list_fragmant.*
+import kotlinx.coroutines.launch
 
 
-class ListFragmant : Fragment() {
+class ListFragmant : BaseFragment() {
 
-    private val listAtapter =
-        ConversationAdapter(arrayListOf())
+    private val listAtapter = ConversationAdapter(arrayListOf())
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_list_fragmant, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        paraRV.apply {
+            setHasFixedSize(true)
+            layoutManager = LinearLayoutManager(context)
+        }
+
+        val paras = ParaHelper().setParaList()
+        for (item in paras) {
+            launch {
+                savePara(item)
+            }
+        }
+        paraRV.adapter=ParaAdapter(paras)
+
 
     }
 
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        Helper.Page.createConverList()
-        val conversationList = Helper.Page.conversList
-        listAtapter.updateConversationList(conversationList)
-
-        conversationRV.apply {
-            layoutManager = LinearLayoutManager(context)
-            adapter = listAtapter
+    private suspend fun savePara(para: Para) {
+        context?.let {
+            ParaDatabase(it).getParaDao().addPara(para)
+            Toast.makeText(it, " note save", Toast.LENGTH_LONG).show()
         }
 
     }
+
+    /* launch {
+          context?.let {
+              val paras=ParaDatabase(it).getParaDao().getAllParas()
+              paraRV.adapter=ParaAdapter(paras)
+          }
+      }*/
+
+    /* override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+         super.onViewCreated(view, savedInstanceState)
+
+         Helper.Page.createConverList()
+         val conversationList = Helper.Page.conversList
+         listAtapter.updateConversationList(conversationList)
+
+         paraRV.apply {
+             layoutManager = LinearLayoutManager(context)
+             adapter = listAtapter
+         }
+
+     }*/
 }
 
 

@@ -30,13 +30,13 @@ class SingleTalking : Fragment() {
        // val pref=this.activity.getSharedPreferences()
 
 
-        pref = StoreData()
+      /*  pref = StoreData()
 
         arguments?.let {
            val numTalking=SingleTalkingArgs.fromBundle(it).posi
            pref.createListZero(numTalking)
            val list=pref.getTalkingList(1)
-        }
+        }*/
     }
 
 }

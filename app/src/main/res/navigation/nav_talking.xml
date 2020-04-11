@@ -13,8 +13,6 @@
         <action
             android:id="@+id/action_listFragmant_to_singleTalking"
             app:destination="@id/singleTalking" />
-
-
     </fragment>
     <fragment
         android:id="@+id/singleTalking"
@@ -25,15 +23,11 @@
             android:id="@+id/action_singleTalking_to_listFragmant"
             app:destination="@id/listFragmant" />
         <argument
-            android:name="posi"
-            app:argType="integer" />
-        <action
-            android:id="@+id/action_singleTalking_to_storeData"
-            app:destination="@id/storeData" />
+            android:name="para"
+            app:nullable="true"
+            android:defaultValue="@null"
+            app:argType="com.example.yhaa41.room.Para" />
+
 
     </fragment>
-    <fragment
-        android:id="@+id/storeData"
-        android:name="com.example.yhaa41.StoreData"
-        android:label="StoreData" />
 </navigation>

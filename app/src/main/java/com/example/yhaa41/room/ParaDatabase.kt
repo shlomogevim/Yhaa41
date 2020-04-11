@@ -9,8 +9,8 @@ import androidx.room.RoomDatabase
     entities = arrayOf(Para::class),
     version = 1
 )
-
 abstract class ParaDatabase:RoomDatabase() {
+    abstract fun getParaDao(): NewParaDao
     companion object {
         @Volatile private var instance: ParaDatabase? = null
         private val LOCK = Any()
@@ -20,7 +20,6 @@ abstract class ParaDatabase:RoomDatabase() {
                 instance = it
             }
         }
-
         private fun buildDatabase(context: Context) = Room.databaseBuilder(
             context.applicationContext,
             ParaDatabase::class.java,

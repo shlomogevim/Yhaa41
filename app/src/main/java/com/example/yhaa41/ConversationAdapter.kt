@@ -3,9 +3,7 @@ package com.example.yhaa41
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
-import com.example.yhaa41.ui.ListFragmantDirections
 import kotlinx.android.synthetic.main.list_row.view.*
 
 class ConversationAdapter(private val conversationList: ArrayList<Conversation>) :
@@ -28,10 +26,10 @@ class ConversationAdapter(private val conversationList: ArrayList<Conversation>)
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.view.title.text = conversationList[position].title
         holder.view.discription.text = conversationList[position].description
-        conversationList[position].adress?.let { holder.view.conversationIV.setImageResource(it) }
+        conversationList[position].adress?.let { holder.view.paraIV.setImageResource(it) }
         holder.view.cardView.setOnClickListener {
-            val action= ListFragmantDirections.actionListFragmantToSingleTalking(position)
-            Navigation.findNavController(holder.view).navigate(action)
+//            val action= ListFragmantDirections.actionListFragmantToSingleTalking(position)
+//            Navigation.findNavController(holder.view).navigate(action)
         }
     }
 
