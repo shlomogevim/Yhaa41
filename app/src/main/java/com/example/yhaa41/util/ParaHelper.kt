@@ -21,12 +21,8 @@ class ParaHelper {
             Para("ריקנות", "בשיבחי הריקנות.", R.drawable.empty),
 
             Para("בעבודה", "מה לעשות, עדיין בעבודה", R.mipmap.ic_launcher_round),
-            Para("בעבודה", "מה לעשות, עדיין בעבודה", R.mipmap.ic_launcher_round),
-            Para("בעבודה", "מה לעשות, עדיין בעבודה", R.mipmap.ic_launcher_round),
-            Para("בעבודה", "מה לעשות, עדיין בעבודה", R.mipmap.ic_launcher_round),
-            Para("בעבודה", "מה לעשות, עדיין בעבודה", R.mipmap.ic_launcher_round),
             Para("בעבודה", "מה לעשות, עדיין בעבודה", R.mipmap.ic_launcher_round)
-        )
+             )
         paraList.addAll((list))
         return paraList
     }

@@ -19,8 +19,6 @@ import kotlinx.coroutines.launch
 
 class ListFragmant : BaseFragment() {
 
-    private val listAtapter = ConversationAdapter(arrayListOf())
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -35,15 +33,38 @@ class ListFragmant : BaseFragment() {
             layoutManager = LinearLayoutManager(context)
         }
 
+       // createParaListFromTheStart()
+         retriveParaList()
+        //  deletAll()
+
+    }
+
+    private fun deletAll() {
+        launch {
+            context?.let {
+                ParaDatabase(it).getParaDao().deleteAllParas()
+            }
+        }
+    }
+
+    private fun retriveParaList() {
+
+        launch {
+            context?.let {
+                val paras = ParaDatabase(it).getParaDao().getAllParas()
+                paraRV.adapter = ParaAdapter(paras)
+            }
+        }
+    }
+
+    private fun createParaListFromTheStart() {
         val paras = ParaHelper().setParaList()
         for (item in paras) {
             launch {
                 savePara(item)
             }
         }
-        paraRV.adapter=ParaAdapter(paras)
-
-
+        paraRV.adapter = ParaAdapter(paras)
     }
 
     private suspend fun savePara(para: Para) {
@@ -53,6 +74,11 @@ class ListFragmant : BaseFragment() {
         }
 
     }
+
+
+
+
+
 
     /* launch {
           context?.let {

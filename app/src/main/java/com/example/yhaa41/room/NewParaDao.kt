@@ -8,7 +8,8 @@ interface NewParaDao {
     @Insert
     suspend fun addPara(para:Para)
 
-    @Query("SELECT * FROM para ORDER BY id DESC")
+   // @Query("SELECT * FROM para ORDER BY id DESC")
+    @Query("SELECT * FROM para ORDER BY id ASC")
     suspend fun getAllParas(): List<Para>
 
     @Insert
@@ -19,4 +20,7 @@ interface NewParaDao {
 
     @Delete
     suspend fun deletePara(para:Para)
+
+    @Query("DELETE FROM para")
+    suspend fun deleteAllParas()
 }
