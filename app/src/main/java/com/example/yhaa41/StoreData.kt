@@ -1,6 +1,5 @@
 package com.example.yhaa41
 
-import android.app.Activity
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
@@ -10,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.example.yhaa41.util.BaseFragment
+import com.example.yhaa41.util.Talker
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
@@ -152,7 +152,7 @@ class StoreData : BaseFragment() {
         val GOD = "-אלוהים-"
         var i = 0
         var countItem = 0
-        var talker=Talker()
+        var talker= Talker()
         talkList1.add(countItem, talker)
 
        var text = activity!!.assets.open(currenteFile).bufferedReader().use {

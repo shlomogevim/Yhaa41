@@ -1,14 +1,8 @@
-package com.example.yhaa41
+package com.example.yhaa41.util
 
-import android.content.Context
-import android.graphics.drawable.BitmapDrawable
-import android.graphics.drawable.Drawable
 import android.os.Parcel
 import android.os.Parcelable
-import android.util.AttributeSet
 import android.view.View
-import android.widget.ImageView
-import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
 import java.io.Serializable
 
 data class Talker(
@@ -42,38 +36,7 @@ class StyleObject(
     val fontText: Int = 10
 ) : Serializable
 
-data class Convers(
-    val numC: Int? = null,
-    val title: String? = null,
-    val explanation: String? = null
-) : Parcelable {
-    constructor(parcel: Parcel) : this(
-        parcel.readValue(Int::class.java.classLoader) as? Int,
-        parcel.readString(),
-        parcel.readString()
-    ) {
-    }
 
-    override fun writeToParcel(parcel: Parcel, flags: Int) {
-        parcel.writeValue(numC)
-        parcel.writeString(title)
-        parcel.writeString(explanation)
-    }
-
-    override fun describeContents(): Int {
-        return 0
-    }
-
-    companion object CREATOR : Parcelable.Creator<Convers> {
-        override fun createFromParcel(parcel: Parcel): Convers {
-            return Convers(parcel)
-        }
-
-        override fun newArray(size: Int): Array<Convers?> {
-            return arrayOfNulls(size)
-        }
-    }
-}
 
 data class Conversation(
     val title:String?=null,
@@ -115,7 +78,4 @@ data class Sentence(
 
 
 
-interface ConversationClickListener{
-    fun onClick(v:View)
-}
 

@@ -6,6 +6,7 @@ import android.graphics.Point
 import android.view.View
 import android.view.animation.AccelerateInterpolator
 import android.widget.TextView
+import com.example.yhaa41.util.Talker
 import com.github.florent37.viewanimator.ViewAnimator
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.Main

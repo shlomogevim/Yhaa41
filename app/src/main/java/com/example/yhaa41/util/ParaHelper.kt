@@ -3,7 +3,6 @@ package com.example.yhaa41.util
 import android.content.Context
 import android.util.Log
 import com.example.yhaa41.R
-import com.example.yhaa41.Talker
 import com.example.yhaa41.room.Para
 
 class ParaHelper {

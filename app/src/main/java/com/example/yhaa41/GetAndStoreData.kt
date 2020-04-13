@@ -8,7 +8,6 @@ import android.util.Base64
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentActivity
 import com.example.yhaa41.Const.Companion.CURRENTSENTENCE
 import com.example.yhaa41.Const.Companion.CURRENT_PAGE
 import com.example.yhaa41.Const.Companion.FIRSTTALK
@@ -21,6 +20,7 @@ import com.example.yhaa41.Const.Companion.RECOGNIZER
 import com.example.yhaa41.Const.Companion.SHOWPOSITION
 import com.example.yhaa41.Const.Companion.TALKLIST
 import com.example.yhaa41.Const.Companion.TESTMODE
+import com.example.yhaa41.util.Talker
 
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -177,7 +177,7 @@ class GetAndStoreData(context: Context) : AppCompatActivity() {
         val GOD = "-אלוהים-"
         var i = 0
         var countItem = 0
-        var talker=Talker()
+        var talker= Talker()
         talkList1.add(countItem, talker)
         var text = activity.assets.open(currenteFile).bufferedReader().use {
             it.readText()
@@ -267,7 +267,7 @@ class GetAndStoreData(context: Context) : AppCompatActivity() {
         val GOD = "-אלוהים-"
         var i = 0
         var countItem = 0
-        var talker=Talker()
+        var talker= Talker()
         talkList1.add(countItem, talker)
         var text = this.assets.open(currenteFile).bufferedReader().use {
             it.readText()
