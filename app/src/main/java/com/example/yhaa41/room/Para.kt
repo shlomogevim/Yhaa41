@@ -10,8 +10,8 @@ data class Para(
     val num:Int=0,
     val title: String?,
     val description: String?,
-    val imageInt:Int,
-    val talkersString:String?,
+    var imageInt:Int,
+    var talkersString:String?,
     var currentPage:Int=1
 
 ):Parcelable{
