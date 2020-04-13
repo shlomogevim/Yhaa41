@@ -213,24 +213,21 @@ class Helper(val context: Context) {
         val paraList=ArrayList<Para>()
         var list = listOf<Para>(
             /*0*/
-            Para("תפזורת", "על מה שנכתב \n ועל מה שלא.", R.drawable.sea),
-            /*1*/
-            Para("חנוך ילדים", "איך לא לחנך ילדים.", R.drawable.education),
-            /*2*/
-            Para("משמעות החיים", "האם יש בכלל משמעות לחיים.", R.drawable.life),
-            /*3*/
-            Para("פחד,ימי קורונה", "יצי קורונה,\nאיך להתמודד עם הפחד.", R.drawable.corona),
-            /*4*/
-            Para("מי אני,מה אני", "על הגדרות וחוסר הגדרות.", R.drawable.man),
-            /*5*/
-            Para("ריקנות", "בשיבחי הריקנות.", R.drawable.empty),
+          /*  Para(1,"תפזורת", "על מה שנכתב \n ועל מה שלא.", R.drawable.sea),
+            *//*1*//*
+            Para(2,"חנוך ילדים", "איך לא לחנך ילדים.", R.drawable.education),
+            *//*2*//*
+            Para(3,"משמעות החיים", "האם יש בכלל משמעות לחיים.", R.drawable.life),
+            *//*3*//*
+            Para(4,"פחד,ימי קורונה", "יצי קורונה,\nאיך להתמודד עם הפחד.", R.drawable.corona),
+            *//*4*//*
+            Para(5,"מי אני,מה אני", "על הגדרות וחוסר הגדרות.", R.drawable.man),
+            *//*5*//*
+            Para(6,"ריקנות", "בשיבחי הריקנות.", R.drawable.empty),
 
-            Para("בעבודה", "מה לעשות, עדיין בעבודה", R.mipmap.ic_launcher_round),
-            Para("בעבודה", "מה לעשות, עדיין בעבודה", R.mipmap.ic_launcher_round),
-            Para("בעבודה", "מה לעשות, עדיין בעבודה", R.mipmap.ic_launcher_round),
-            Para("בעבודה", "מה לעשות, עדיין בעבודה", R.mipmap.ic_launcher_round),
-            Para("בעבודה", "מה לעשות, עדיין בעבודה", R.mipmap.ic_launcher_round),
-            Para("בעבודה", "מה לעשות, עדיין בעבודה", R.mipmap.ic_launcher_round)
+            Para(7,"בעבודה", "מה לעשות, עדיין בעבודה", R.mipmap.ic_launcher_round),
+            Para(8,"בעבודה", "מה לעשות, עדיין בעבודה", R.mipmap.ic_launcher_round)*/
+
         )
        paraList.addAll((list))
         return paraList

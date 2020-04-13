@@ -9,13 +9,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.example.yhaa41.util.BaseFragment
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
 /**
  * A simple [Fragment] subclass.
  */
-class StoreData : Fragment() {
+class StoreData : BaseFragment() {
 
     lateinit var pref:SharedPreferences
    // val activity = context as Activity
@@ -106,6 +107,9 @@ class StoreData : Fragment() {
         // pref.edit().putString(TALKLIST+tagNum.toString(), jsonString).apply()
         pref.edit().putString(Const.TALKLIST + recogniger.toString(), jsonString).apply()
     }
+
+    fun createList(reco:Int)=createTalkListFromTheStart1(reco)
+
     fun createListZero(recognizer1:Int){
         val talkList=createTalkListFromTheStart1(recognizer1)
         saveRecognizer(recognizer1)
@@ -151,7 +155,7 @@ class StoreData : Fragment() {
         var talker=Talker()
         talkList1.add(countItem, talker)
 
-        var text = activity!!.assets.open(currenteFile).bufferedReader().use {
+       var text = activity!!.assets.open(currenteFile).bufferedReader().use {
             it.readText()
         }
         text = text.replace("\r", "")

@@ -33,8 +33,8 @@ class ListFragmant : BaseFragment() {
             layoutManager = LinearLayoutManager(context)
         }
 
-       // createParaListFromTheStart()
-         retriveParaList()
+        createParaListFromTheStart()
+        // retriveParaList()
         //  deletAll()
 
     }

@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/singleTalking"
-        android:name="com.example.yhaa41.SingleTalking"
+        android:name="com.example.yhaa41.ui.SingleTalking"
         android:label="fragment_single_talking"
         tools:layout="@layout/fragment_single_talking" >
         <action

@@ -7,16 +7,22 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class Para(
+    val num:Int=0,
     val title: String?,
     val description: String?,
-    val imageInt:Int
+    val imageInt:Int,
+    val talkersString:String?,
+    var currentPage:Int=1
 
 ):Parcelable{
     @PrimaryKey(autoGenerate = true)
     var id:Int=0
 
     constructor(parcel: Parcel) : this(
+        parcel.readInt(),
         parcel.readString(),
+        parcel.readString(),
+        parcel.readInt(),
         parcel.readString(),
         parcel.readInt()
     ) {
@@ -24,9 +30,12 @@ data class Para(
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeInt(num)
         parcel.writeString(title)
         parcel.writeString(description)
         parcel.writeInt(imageInt)
+        parcel.writeString(talkersString)
+        parcel.writeInt(currentPage)
         parcel.writeInt(id)
     }
 
@@ -43,5 +52,7 @@ data class Para(
             return arrayOfNulls(size)
         }
     }
+
+
 }
 

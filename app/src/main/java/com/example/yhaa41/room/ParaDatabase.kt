@@ -23,7 +23,7 @@ abstract class ParaDatabase:RoomDatabase() {
         private fun buildDatabase(context: Context) = Room.databaseBuilder(
             context.applicationContext,
             ParaDatabase::class.java,
-            "paradatabase"
+            "paradatabase2"
         ).build()
     }
 
