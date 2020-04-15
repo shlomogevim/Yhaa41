@@ -31,19 +31,21 @@ class SingleTalking : BaseFragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        // pref = StoreData()
         talkList = ArrayList<Talker>()
        //pref=GetAndStoreData(context)
         arguments?.let {
             para = SingleTalkingArgs.fromBundle(it).para
             var recognize = para!!.num
+           // pref.saveRecognizer(recognize)
             Toast.makeText(context, "para num is -> $recognize", Toast.LENGTH_LONG).show()
             talkList = context?.let { it1 ->
                 ParaHelper().creatTalkListFromTextFile(it1, recognize)
             }!!
         }
+
+
+        pref.saveTalkingList(talkList)
         val gson = Gson()
-        // val tagNum = getCurrentFile()
         val jsonString = gson.toJson(talkList)
         para?.talkersString = jsonString
         launch {
@@ -53,9 +55,9 @@ class SingleTalking : BaseFragment() {
                 }
             }
         }
-        val action= context?.let { AnimationInAction(it) }
+        val animateInAction= context?.let { AnimationInAction(it) }
         val talker=talkList[para?.currentPage!!]
-        action?.executeTalker(talker)
+        animateInAction?.executeTalker(talker)
     }
 
     /*val action=

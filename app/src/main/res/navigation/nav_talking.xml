@@ -19,28 +19,28 @@
         android:name="com.example.yhaa41.ui.SingleTalking"
         android:label="fragment_single_talking"
         tools:layout="@layout/fragment_single_talking" >
-        <action
-            android:id="@+id/action_singleTalking_to_listFragmant"
-            app:destination="@id/listFragmant" />
         <argument
             android:name="para"
             app:nullable="true"
             android:defaultValue="@null"
             app:argType="com.example.yhaa41.room.Para" />
         <action
-            android:id="@+id/action_singleTalking_to_animationInActionFragment"
-            app:destination="@id/animationInActionFragment" />
+            android:id="@+id/action_singleTalking_to_buttonSpaceFragment"
+            app:destination="@id/buttonSpaceFragment" />
 
 
     </fragment>
     <fragment
-        android:id="@+id/animationInActionFragment"
-        android:name="com.example.yhaa41.action.AnimationInActionFragment"
-        android:label="AnimationInActionFragment" >
+        android:id="@+id/buttonSpaceFragment"
+        android:name="com.example.yhaa41.action.ButtonSpaceFragment"
+        android:label="ButtonSpaceFragment" >
         <argument
-            android:name="talker"
+            android:name="para"
             app:nullable="true"
             android:defaultValue="@null"
-            app:argType="com.example.yhaa41.util.Talker" />
+            app:argType="com.example.yhaa41.room.Para" />
+        <action
+            android:id="@+id/action_buttonSpaceFragment_to_listFragmant"
+            app:destination="@id/listFragmant" />
     </fragment>
 </navigation>
