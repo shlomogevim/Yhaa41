@@ -1,17 +1,47 @@
 package com.example.yhaa41.util
 
+import android.animation.AnimatorInflater
+import android.app.Activity
 import android.content.Context
 import android.util.Log
+import android.view.View
 import com.example.yhaa41.R
 import com.example.yhaa41.room.Para
+import kotlinx.android.synthetic.main.activity_one_talking.*
 
-class ParaHelper {
+class ParaHelper() {
 
+
+    fun activateHowSpeaking( contex: Context,talker: Talker) {
+        val activity = contex as Activity
+        val pref = GetAndStoreData(contex)
+        val anim = AnimatorInflater.loadAnimator(contex, R.animator.alpha)
+        val showPosition = pref.getShowPosition()
+
+        if (showPosition) {
+            if (talker.whoSpeake == "man") {
+                activity.man_speaking_iv.visibility = View.VISIBLE
+                activity.god_speaking_iv.visibility = View.INVISIBLE
+                anim?.apply {
+                    setTarget(activity.man_speaking_iv)
+                    start()
+                }
+            } else {
+                activity.god_speaking_iv.visibility = View.VISIBLE
+                activity.man_speaking_iv.visibility = View.INVISIBLE
+                anim?.apply {
+                    setTarget(activity.god_speaking_iv)
+                    start()
+                }
+            }
+        } else {
+            activity.god_speaking_iv.visibility = View.INVISIBLE
+            activity.man_speaking_iv.visibility = View.INVISIBLE
+        }
+    }
 
     fun creatTalkListFromTextFile(contex:Context, recognizer: Int): ArrayList<Talker> {
-
         var currenteFile = showFileName(recognizer)
-
         Log.d("clima","GetAndStoreData->FromTheStart1->recogniger1=$recognizer")
 
         var talkList1 = arrayListOf<Talker>()

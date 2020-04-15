@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.example.yhaa41.util.GetAndStoreData
 import com.example.yhaa41.R
+import com.example.yhaa41.action.AnimationInAction
 import com.example.yhaa41.util.Talker
 import com.example.yhaa41.room.Para
 import com.example.yhaa41.room.ParaDatabase
@@ -16,6 +18,7 @@ import kotlinx.coroutines.launch
 
 
 class SingleTalking : BaseFragment() {
+    lateinit var pref: GetAndStoreData
     var talkList = ArrayList<Talker>()
     var para: Para? = null
 
@@ -30,6 +33,7 @@ class SingleTalking : BaseFragment() {
         super.onActivityCreated(savedInstanceState)
         // pref = StoreData()
         talkList = ArrayList<Talker>()
+       //pref=GetAndStoreData(context)
         arguments?.let {
             para = SingleTalkingArgs.fromBundle(it).para
             var recognize = para!!.num
@@ -49,8 +53,19 @@ class SingleTalking : BaseFragment() {
                 }
             }
         }
-
+        val action= context?.let { AnimationInAction(it) }
+        val talker=talkList[para?.currentPage!!]
+        action?.executeTalker(talker)
     }
+
+    /*val action=
+             SingleTalkingDirections.actionSingleTalkingToAnimationInActionFragment()
+         action.talker=talkList[para?.currentPage!!]
+         Navigation.findNavController(godSpeaking0).navigate(action)*/
+
+        /*val action=ListFragmantDirections.actionListFragmantToSingleTalking()
+        action.para=paras[position]
+        Navigation.findNavController(it).navigate(action)*/
 
 
 }

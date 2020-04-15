@@ -6,8 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.yhaa41.ConversationAdapter
-import com.example.yhaa41.Helper
 import com.example.yhaa41.R
 import com.example.yhaa41.room.Para
 import com.example.yhaa41.room.ParaDatabase

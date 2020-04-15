@@ -1,4 +1,4 @@
-package com.example.yhaa41
+package com.example.yhaa41.util
 
 import android.app.Activity
 import android.content.Context
@@ -8,19 +8,18 @@ import android.util.Base64
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.yhaa41.Const.Companion.CURRENTSENTENCE
-import com.example.yhaa41.Const.Companion.CURRENT_PAGE
-import com.example.yhaa41.Const.Companion.FIRSTTALK
-import com.example.yhaa41.Const.Companion.FONTS
-import com.example.yhaa41.Const.Companion.INTERVAL
-import com.example.yhaa41.Const.Companion.LASTTALKER
-import com.example.yhaa41.Const.Companion.LAST_PAGE
-import com.example.yhaa41.Const.Companion.PREFS_NAME
-import com.example.yhaa41.Const.Companion.RECOGNIZER
-import com.example.yhaa41.Const.Companion.SHOWPOSITION
-import com.example.yhaa41.Const.Companion.TALKLIST
-import com.example.yhaa41.Const.Companion.TESTMODE
-import com.example.yhaa41.util.Talker
+import com.example.yhaa41.util.Const.Companion.CURRENTSENTENCE
+import com.example.yhaa41.util.Const.Companion.CURRENT_PAGE
+import com.example.yhaa41.util.Const.Companion.FIRSTTALK
+import com.example.yhaa41.util.Const.Companion.FONTS
+import com.example.yhaa41.util.Const.Companion.INTERVAL
+import com.example.yhaa41.util.Const.Companion.LASTTALKER
+import com.example.yhaa41.util.Const.Companion.LAST_PAGE
+import com.example.yhaa41.util.Const.Companion.PREFS_NAME
+import com.example.yhaa41.util.Const.Companion.RECOGNIZER
+import com.example.yhaa41.util.Const.Companion.SHOWPOSITION
+import com.example.yhaa41.util.Const.Companion.TALKLIST
+import com.example.yhaa41.util.Const.Companion.TESTMODE
 
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken

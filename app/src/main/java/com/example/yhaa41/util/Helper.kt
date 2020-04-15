@@ -1,4 +1,4 @@
-package com.example.yhaa41
+package com.example.yhaa41.util
 
 import android.animation.AnimatorInflater
 import android.app.Activity
@@ -6,11 +6,8 @@ import android.content.Context
 import android.graphics.Typeface
 import android.view.View
 import android.widget.Toast
+import com.example.yhaa41.R
 import com.example.yhaa41.room.Para
-import com.example.yhaa41.util.Conversation
-import com.example.yhaa41.util.Sentence
-import com.example.yhaa41.util.StyleObject
-import com.example.yhaa41.util.Talker
 import kotlinx.android.synthetic.main.activity_one_talking.*
 
 class Helper(val context: Context) {
@@ -19,7 +16,9 @@ class Helper(val context: Context) {
 
     fun activateHowSpeaking() {
         val talker = pref.currentTalk()
-        val anim = AnimatorInflater.loadAnimator(context, R.animator.alpha)
+        val anim = AnimatorInflater.loadAnimator(context,
+            R.animator.alpha
+        )
         val showPosition = pref.getShowPosition()
 
         if (showPosition) {

@@ -27,7 +27,20 @@
             app:nullable="true"
             android:defaultValue="@null"
             app:argType="com.example.yhaa41.room.Para" />
+        <action
+            android:id="@+id/action_singleTalking_to_animationInActionFragment"
+            app:destination="@id/animationInActionFragment" />
 
 
+    </fragment>
+    <fragment
+        android:id="@+id/animationInActionFragment"
+        android:name="com.example.yhaa41.action.AnimationInActionFragment"
+        android:label="AnimationInActionFragment" >
+        <argument
+            android:name="talker"
+            app:nullable="true"
+            android:defaultValue="@null"
+            app:argType="com.example.yhaa41.util.Talker" />
     </fragment>
 </navigation>
