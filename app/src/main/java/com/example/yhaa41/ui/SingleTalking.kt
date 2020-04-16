@@ -17,6 +17,7 @@ import com.example.yhaa41.util.BaseFragment
 import com.example.yhaa41.util.ParaHelper
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.god_layout.*
+import kotlinx.android.synthetic.main.helper_view_layout.*
 import kotlinx.coroutines.launch
 
 
@@ -24,30 +25,91 @@ class SingleTalking : BaseFragment() {
     lateinit var pref: GetAndStoreData
     var talkList = ArrayList<Talker>()
     var para: Para? = null
+    lateinit var animationInAction: AnimationInAction
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+
         return inflater.inflate(R.layout.fragment_single_talking, container, false)
     }
 
+ /*   override fun onClick(v: View?) {
+        when (v?.id) {
+            R.id.fab -> nextIt()
+            R.id.fab1 -> previousIt()
 
+        }
+        val talker = talkList[para!!.currentPage]
+        animationInAction.executeTalker(talker)
+    }
+*/
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        // pref = StoreData()
-        talkList = ArrayList<Talker>()
-       //pref=GetAndStoreData(context)
+       /* fab.setOnClickListener(this)
+        fab1.setOnClickListener(this)*/
+        getPara()
+        animationInAction = context?.let { AnimationInAction(it) }!!
+        val talker = talkList[para!!.currentPage]
+        animationInAction.executeTalker(talker)
+    }
+
+    /* override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+         super.onViewCreated(view, savedInstanceState)
+        *//* fab.setOnClickListener {
+            nextIt()
+            val talker = talkList[para!!.currentPage]
+            animationInAction.executeTalker(talker)
+        }
+        fab1.setOnClickListener {
+            previousIt()
+            val talker = talkList[para!!.currentPage]
+            animationInAction.executeTalker(talker)
+        } *//*
+    }*/
+
+
+    private fun previousIt() {
+        var currentPage = para?.currentPage!!
+        currentPage--
+        if (currentPage < 1) currentPage = 1
+        para!!.currentPage = currentPage
+    }
+
+    private fun nextIt() {
+        var max = talkList.size - 1
+        var currentPage = para?.currentPage!!
+        currentPage++
+        if (currentPage > max) currentPage = 1
+        para!!.currentPage = currentPage
+    }
+
+    /* override fun onClick(v: View?) {
+         when (v?.id){
+             R.id.fab->nextIt()
+             R.id.fab1->previousIt()
+         }
+         val talker = talkList[para!!.currentPage]
+        // animationInAction.executeTalker(talker)
+     }*/
+    /* fun initButton() {
+         fab.setOnClickListener { onClick(fab) }
+         fab1.setOnClickListener { onClick(fab1) }
+         tvPage.setOnClickListener { onClick(tvPage) }
+     }*/
+
+    private fun getPara() {
         arguments?.let {
             para = SingleTalkingArgs.fromBundle(it).para
             var recognize = para!!.num
-           // Toast.makeText(context, "para num is -> $recognize", Toast.LENGTH_LONG).show()
+            // Toast.makeText(context, "para num is -> $recognize", Toast.LENGTH_LONG).show()
             talkList = context?.let { it1 ->
                 ParaHelper().creatTalkListFromTextFile(it1, recognize)
             }!!
         }
         val gson = Gson()
-        // val tagNum = getCurrentFile()
         val jsonString = gson.toJson(talkList)
         para?.talkersString = jsonString
         launch {
@@ -57,25 +119,7 @@ class SingleTalking : BaseFragment() {
                 }
             }
         }
-
-       /* val action=
-            SingleTalkingDirections.actionSingleTalkingToAnimationInActionFragment(para!!)
-        Navigation.findNavController(godSpeaking0).navigate(action)*/
-
-
-
     }
-
-
-
-    /*val action=
-             SingleTalkingDirections.actionSingleTalkingToAnimationInActionFragment()
-         action.talker=talkList[para?.currentPage!!]
-         Navigation.findNavController(godSpeaking0).navigate(action)*/
-
-        /*val action=ListFragmantDirections.actionListFragmantToSingleTalking()
-        action.para=paras[position]
-        Navigation.findNavController(it).navigate(action)*/
 
 
 }

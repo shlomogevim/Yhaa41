@@ -12,6 +12,7 @@ import com.example.yhaa41.room.ParaDatabase
 import com.example.yhaa41.util.BaseFragment
 import com.example.yhaa41.util.ParaHelper
 import kotlinx.android.synthetic.main.fragment_list_fragmant.*
+import kotlinx.android.synthetic.main.helper_view_layout.*
 import kotlinx.coroutines.launch
 
 
@@ -26,6 +27,7 @@ class ListFragmant : BaseFragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
         paraRV.apply {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(context)
@@ -36,6 +38,7 @@ class ListFragmant : BaseFragment() {
         //  deletAll()
 
     }
+
 
     private fun deletAll() {
         launch {
