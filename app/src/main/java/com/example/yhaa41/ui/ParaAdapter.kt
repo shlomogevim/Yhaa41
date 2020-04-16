@@ -27,9 +27,24 @@ class ParaAdapter(val paras: List<Para>) :
         paras[position].imageInt?.let { holder.view.paraIV.setImageResource(it) }
 
         holder.view.setOnClickListener {
-           val action=ListFragmantDirections.actionListFragmantToSingleTalking()
-            action.para=paras[position]
-            Navigation.findNavController(it).navigate(action)
+            if (position > 0) {
+                val action = ListFragmantDirections.actionListFragmantToSingleTalking()
+                action.para = paras[position]
+                Navigation.findNavController(it).navigate(action)
+            } else {
+                val action1 = ListFragmantDirections.actionListFragmantToSentenceListFragment()
+                Navigation.findNavController(it).navigate(action1)
+            }
+        }
+    }
+
+    private fun operateMovment(it: View?, position: Int) {
+        if (position > 1) {
+            val action = ListFragmantDirections.actionListFragmantToSingleTalking()
+            action.para = paras[position]
+            it?.let { it1 -> Navigation.findNavController(it1).navigate(action) }
+        } else {
+            // val action=ListFragmantDirections.a
         }
     }
 }

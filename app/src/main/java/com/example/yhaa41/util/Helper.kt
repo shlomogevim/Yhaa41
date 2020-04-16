@@ -8,11 +8,14 @@ import android.view.View
 import android.widget.Toast
 import com.example.yhaa41.R
 import com.example.yhaa41.room.Para
+import com.example.yhaa41.sentence.Sentence
 import kotlinx.android.synthetic.main.activity_one_talking.*
 
 class Helper(val context: Context) {
     val activity = context as Activity
     val pref = GetAndStoreData(context)
+
+
 
     fun activateHowSpeaking() {
         val talker = pref.currentTalk()
@@ -229,29 +232,7 @@ class Helper(val context: Context) {
         }
     }
 
-    fun setParaList():ArrayList<Para>{
-        val paraList=ArrayList<Para>()
-        var list = listOf<Para>(
-            /*0*/
-          /*  Para(1,"תפזורת", "על מה שנכתב \n ועל מה שלא.", R.drawable.sea),
-            *//*1*//*
-            Para(2,"חנוך ילדים", "איך לא לחנך ילדים.", R.drawable.education),
-            *//*2*//*
-            Para(3,"משמעות החיים", "האם יש בכלל משמעות לחיים.", R.drawable.life),
-            *//*3*//*
-            Para(4,"פחד,ימי קורונה", "יצי קורונה,\nאיך להתמודד עם הפחד.", R.drawable.corona),
-            *//*4*//*
-            Para(5,"מי אני,מה אני", "על הגדרות וחוסר הגדרות.", R.drawable.man),
-            *//*5*//*
-            Para(6,"ריקנות", "בשיבחי הריקנות.", R.drawable.empty),
 
-            Para(7,"בעבודה", "מה לעשות, עדיין בעבודה", R.mipmap.ic_launcher_round),
-            Para(8,"בעבודה", "מה לעשות, עדיין בעבודה", R.mipmap.ic_launcher_round)*/
-
-        )
-       paraList.addAll((list))
-        return paraList
-    }
 
     object Page {
         val conversList = ArrayList<Conversation>()

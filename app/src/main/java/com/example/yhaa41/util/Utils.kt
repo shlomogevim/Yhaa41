@@ -82,11 +82,11 @@ data class Conversation(
         }
     }
 }
-
+/*
 data class Sentence(
     val firstPartSen:String,
     val secondPartSen:String
-)
+)*/
 
 
 object Utile {
