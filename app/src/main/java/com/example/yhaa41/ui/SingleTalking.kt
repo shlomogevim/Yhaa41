@@ -16,13 +16,13 @@ import com.example.yhaa41.room.ParaDatabase
 import com.example.yhaa41.util.BaseFragment
 import com.example.yhaa41.util.ParaHelper
 import com.google.gson.Gson
+import kotlinx.android.synthetic.main.fragment_single_talking.*
 import kotlinx.android.synthetic.main.god_layout.*
 import kotlinx.android.synthetic.main.helper_view_layout.*
 import kotlinx.coroutines.launch
 
 
-class SingleTalking : BaseFragment() {
-    lateinit var pref: GetAndStoreData
+class SingleTalking : BaseFragment(), View.OnClickListener {
     var talkList = ArrayList<Talker>()
     var para: Para? = null
     lateinit var animationInAction: AnimationInAction
@@ -31,12 +31,10 @@ class SingleTalking : BaseFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-
         return inflater.inflate(R.layout.fragment_single_talking, container, false)
     }
 
- /*   override fun onClick(v: View?) {
+    override fun onClick(v: View?) {
         when (v?.id) {
             R.id.fab -> nextIt()
             R.id.fab1 -> previousIt()
@@ -45,31 +43,17 @@ class SingleTalking : BaseFragment() {
         val talker = talkList[para!!.currentPage]
         animationInAction.executeTalker(talker)
     }
-*/
+
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-       /* fab.setOnClickListener(this)
-        fab1.setOnClickListener(this)*/
+        fab.setOnClickListener(this)
+        fab1.setOnClickListener(this)
         getPara()
         animationInAction = context?.let { AnimationInAction(it) }!!
         val talker = talkList[para!!.currentPage]
         animationInAction.executeTalker(talker)
     }
-
-    /* override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-         super.onViewCreated(view, savedInstanceState)
-        *//* fab.setOnClickListener {
-            nextIt()
-            val talker = talkList[para!!.currentPage]
-            animationInAction.executeTalker(talker)
-        }
-        fab1.setOnClickListener {
-            previousIt()
-            val talker = talkList[para!!.currentPage]
-            animationInAction.executeTalker(talker)
-        } *//*
-    }*/
-
 
     private fun previousIt() {
         var currentPage = para?.currentPage!!
@@ -86,19 +70,6 @@ class SingleTalking : BaseFragment() {
         para!!.currentPage = currentPage
     }
 
-    /* override fun onClick(v: View?) {
-         when (v?.id){
-             R.id.fab->nextIt()
-             R.id.fab1->previousIt()
-         }
-         val talker = talkList[para!!.currentPage]
-        // animationInAction.executeTalker(talker)
-     }*/
-    /* fun initButton() {
-         fab.setOnClickListener { onClick(fab) }
-         fab1.setOnClickListener { onClick(fab1) }
-         tvPage.setOnClickListener { onClick(tvPage) }
-     }*/
 
     private fun getPara() {
         arguments?.let {
@@ -120,6 +91,8 @@ class SingleTalking : BaseFragment() {
             }
         }
     }
+
+
 
 
 }

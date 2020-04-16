@@ -11,6 +11,7 @@ import com.example.yhaa41.util.GetAndStoreData
 import com.example.yhaa41.util.Helper
 import com.example.yhaa41.util.Utile
 import com.example.yhaa41.util.Talker
+import kotlinx.android.synthetic.main.fragment_single_talking.*
 import kotlinx.android.synthetic.main.god_layout.*
 import kotlinx.android.synthetic.main.helper_view_layout.*
 import kotlinx.android.synthetic.main.man_layout.*
