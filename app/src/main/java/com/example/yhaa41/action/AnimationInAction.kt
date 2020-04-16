@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
+import android.view.View
 import android.widget.TextView
 import com.example.yhaa41.util.GetAndStoreData
 import com.example.yhaa41.util.Helper
@@ -18,7 +19,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.util.*
 
-class AnimationInAction(val context: Context) {
+class AnimationInAction(val context: Context): View.OnClickListener  {
     //class AnimationInAction1(val context: Context) {
         val activity = context as Activity
         val pref = GetAndStoreData(context)
@@ -291,8 +292,12 @@ class AnimationInAction(val context: Context) {
             tv5 = null
         }
 
+    override fun onClick(v: View?) {
 
-   // }
+    }
+
+
+
 }
 
 

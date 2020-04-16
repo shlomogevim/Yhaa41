@@ -5,15 +5,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.Navigation
 import com.example.yhaa41.util.GetAndStoreData
 import com.example.yhaa41.R
 import com.example.yhaa41.action.AnimationInAction
+import com.example.yhaa41.action.AnimationInActionFragment
 import com.example.yhaa41.util.Talker
 import com.example.yhaa41.room.Para
 import com.example.yhaa41.room.ParaDatabase
 import com.example.yhaa41.util.BaseFragment
 import com.example.yhaa41.util.ParaHelper
 import com.google.gson.Gson
+import kotlinx.android.synthetic.main.god_layout.*
 import kotlinx.coroutines.launch
 
 
@@ -29,6 +32,7 @@ class SingleTalking : BaseFragment() {
         return inflater.inflate(R.layout.fragment_single_talking, container, false)
     }
 
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         // pref = StoreData()
@@ -37,7 +41,7 @@ class SingleTalking : BaseFragment() {
         arguments?.let {
             para = SingleTalkingArgs.fromBundle(it).para
             var recognize = para!!.num
-            Toast.makeText(context, "para num is -> $recognize", Toast.LENGTH_LONG).show()
+           // Toast.makeText(context, "para num is -> $recognize", Toast.LENGTH_LONG).show()
             talkList = context?.let { it1 ->
                 ParaHelper().creatTalkListFromTextFile(it1, recognize)
             }!!
@@ -53,10 +57,16 @@ class SingleTalking : BaseFragment() {
                 }
             }
         }
-        val action= context?.let { AnimationInAction(it) }
-        val talker=talkList[para?.currentPage!!]
-        action?.executeTalker(talker)
+
+       /* val action=
+            SingleTalkingDirections.actionSingleTalkingToAnimationInActionFragment(para!!)
+        Navigation.findNavController(godSpeaking0).navigate(action)*/
+
+
+
     }
+
+
 
     /*val action=
              SingleTalkingDirections.actionSingleTalkingToAnimationInActionFragment()

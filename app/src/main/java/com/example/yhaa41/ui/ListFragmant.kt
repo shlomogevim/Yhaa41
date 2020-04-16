@@ -68,7 +68,7 @@ class ListFragmant : BaseFragment() {
     private suspend fun savePara(para: Para) {
         context?.let {
             ParaDatabase(it).getParaDao().addPara(para)
-            Toast.makeText(it, " note save", Toast.LENGTH_LONG).show()
+           // Toast.makeText(it, " note save", Toast.LENGTH_LONG).show()
         }
 
     }

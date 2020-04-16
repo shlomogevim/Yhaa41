@@ -38,9 +38,7 @@
         android:name="com.example.yhaa41.action.AnimationInActionFragment"
         android:label="AnimationInActionFragment" >
         <argument
-            android:name="talker"
-            app:nullable="true"
-            android:defaultValue="@null"
-            app:argType="com.example.yhaa41.util.Talker" />
+            android:name="para"
+            app:argType="com.example.yhaa41.room.Para" />
     </fragment>
 </navigation>
