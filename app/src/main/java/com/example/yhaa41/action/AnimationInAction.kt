@@ -38,6 +38,22 @@ class AnimationInAction(val context: Context): View.OnClickListener  {
 
         var listOfTextview = arrayListOf(tv0, tv1, tv2, tv3, tv4, tv5)
 
+    fun executeTalker(talker: Talker) {
+        updateTitleTalkerSituation()
+         redGreenTvPage()
+        helper.activateHowSpeaking()
+
+        if (talker.whoSpeake == "man") {
+            configManTextView(talker)
+        } else {
+            configGodTextView(talker)
+        }
+        listOfTextview = arrayListOf(tv0, tv1, tv2, tv3, tv4, tv5)
+        listOfTextview.removeAll(Collections.singleton(null))
+        letsMove(talker, listOfTextview)
+
+    }
+
         private fun styleTextViewTalk(tv: TextView, st: String, talker: Talker): TextView {
             val shape = GradientDrawable()
             shape.setCornerRadius(talker.radius)
@@ -91,23 +107,6 @@ class AnimationInAction(val context: Context): View.OnClickListener  {
                 activity.tvPage.text = index.toString()
                 //  numTalker = index
             }
-        }
-
-        fun executeTalker(talker: Talker) {
-            updateTitleTalkerSituation()
-            //  redGreenTvPage()
-           // val talker = pref.currentTalk()
-            helper.activateHowSpeaking()
-
-            if (talker.whoSpeake == "man") {
-                configManTextView(talker)
-            } else {
-                configGodTextView(talker)
-            }
-            listOfTextview = arrayListOf(tv0, tv1, tv2, tv3, tv4, tv5)
-            listOfTextview.removeAll(Collections.singleton(null))
-            letsMove(talker, listOfTextview)
-
         }
 
         private fun redGreenTvPage() {
