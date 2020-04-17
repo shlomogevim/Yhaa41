@@ -40,6 +40,7 @@ class SentenceListAdapter(val context: Context, private var sentenceList: ArrayL
             /*val action1 = ListFragmantDirections.actionListFragmantToSentenceListFragment()
                 Navigation.findNavController(it).navigate(action1)*/
             val action = SentenceListFragmentDirections.actionSentenceListFragmentToVideoFtagment()
+            action.setVideoNum(position + 1)
             Navigation.findNavController(it).navigate(action)
         }
     }

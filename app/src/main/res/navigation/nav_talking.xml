@@ -15,7 +15,10 @@
             app:destination="@id/singleTalking" />
         <action
             android:id="@+id/action_listFragmant_to_sentenceListFragment"
-            app:destination="@id/sentenceListFragment"/>
+            app:destination="@id/sentenceListFragment"
+
+            app:enterAnim="@anim/enter_from_left"
+            app:exitAnim="@anim/exit_to_right"/>
     </fragment>
     <fragment
         android:id="@+id/singleTalking"
@@ -44,6 +47,7 @@
         <action
             android:id="@+id/action_sentenceListFragment_to_videoFtagment"
             app:destination="@id/videoFtagment" />
+
     </fragment>
     <fragment
         android:id="@+id/videoFtagment"
@@ -53,5 +57,9 @@
         <action
             android:id="@+id/action_videoFtagment_to_sentenceListFragment2"
             app:destination="@id/sentenceListFragment" />
+        <argument
+            android:name="videoNum"
+            app:argType="integer"
+            android:defaultValue="1" />
     </fragment>
 </navigation>
