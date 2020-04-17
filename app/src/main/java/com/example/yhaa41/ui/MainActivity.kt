@@ -17,11 +17,11 @@ class MainActivity : AppCompatActivity() {
         var pref= GetAndStoreData(this)
         pref.saveShowPosition(true)
 
-        navController=Navigation.findNavController(this,R.id.fragment)
-        NavigationUI.setupActionBarWithNavController(this,navController)
+       /* navController=Navigation.findNavController(this,R.id.fragment)
+        NavigationUI.setupActionBarWithNavController(this,navController)*/
     }
 
-    override fun onSupportNavigateUp(): Boolean {
+   /* override fun onSupportNavigateUp(): Boolean {
         return NavigationUI.navigateUp(navController,null)
-    }
+    }*/
 }

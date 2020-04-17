@@ -15,7 +15,7 @@
             app:destination="@id/singleTalking" />
         <action
             android:id="@+id/action_listFragmant_to_sentenceListFragment"
-            app:destination="@id/sentenceListFragment" />
+            app:destination="@id/sentenceListFragment"/>
     </fragment>
     <fragment
         android:id="@+id/singleTalking"

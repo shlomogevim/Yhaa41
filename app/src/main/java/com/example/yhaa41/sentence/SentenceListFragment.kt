@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.addCallback
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.example.yhaa41.R
@@ -18,27 +20,43 @@ import kotlinx.android.synthetic.main.fragment_sentence_list.*
  * A simple [Fragment] subclass.
  */
 class SentenceListFragment : Fragment() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+         val callback=
+             requireActivity().onBackPressedDispatcher.addCallback(this){
+                 val action = SentenceListFragmentDirections.actionSentenceListFragmentToListFragmant()
+                 Navigation.findNavController(recyclerViewPostId).navigate(action)
+             }
+        callback.isEnabled
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         return inflater.inflate(R.layout.fragment_sentence_list, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-            Helper.Sent.createSentList()
-            var senteList = Helper.Sent.sentList
-            val snapeHelper = GravitySnapHelper(Gravity.CENTER)
+        Helper.Sent.createSentList()
+        var senteList = Helper.Sent.sentList
+        val snapeHelper = GravitySnapHelper(Gravity.CENTER)
 
-            recyclerViewPostId.layoutManager =
-                LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-            snapeHelper.attachToRecyclerView(recyclerViewPostId)
-            recyclerViewPostId.adapter = context?.let { SentenceListAdapter(it,senteList) }
-            recyclerViewPostId.adapter!!.notifyDataSetChanged()
-        }
+        recyclerViewPostId.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        snapeHelper.attachToRecyclerView(recyclerViewPostId)
+        recyclerViewPostId.adapter = context?.let { SentenceListAdapter(it, senteList) }
+        recyclerViewPostId.adapter!!.notifyDataSetChanged()
+
+       /* val action = SentenceListFragmentDirections.actionSentenceListFragmentToListFragmant()
+        Navigation.findNavController(recyclerViewPostId).navigate(action)*/
+
     }
+
+
+}
 
 

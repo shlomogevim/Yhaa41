@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.addCallback
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.yhaa41.R
 import com.example.yhaa41.room.Para
@@ -17,6 +18,25 @@ import kotlinx.coroutines.launch
 
 
 class ListFragmant : BaseFragment() {
+    /*override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+         val callback=
+             requireActivity().onBackPressedDispatcher.addCallback(this){
+                 val action = SentenceListFragmentDirections.actionSentenceListFragmentToListFragmant()
+                 Navigation.findNavController(recyclerViewPostId).navigate(action)
+             }
+        callback.isEnabled
+    }*/
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val callback=
+            requireActivity().onBackPressedDispatcher.addCallback(this){
+                activity?.finish()
+                  }
+        callback.isEnabled
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
