@@ -4,15 +4,22 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.addCallback
+import androidx.navigation.Navigation
 import com.example.yhaa41.R
 import com.example.yhaa41.action.AnimationInAction
 import com.example.yhaa41.util.Talker
 import com.example.yhaa41.room.Para
 import com.example.yhaa41.room.ParaDatabase
+import com.example.yhaa41.sentence.SentenceListFragmentDirections
+import com.example.yhaa41.sentence.VideoFtagmentDirections
 import com.example.yhaa41.util.BaseFragment
 import com.example.yhaa41.util.ParaHelper
 import com.google.gson.Gson
+import kotlinx.android.synthetic.main.fragment_sentence_list.*
 import kotlinx.android.synthetic.main.fragment_single_talking.*
+import kotlinx.android.synthetic.main.fragment_video_ftagment.*
+import kotlinx.android.synthetic.main.god_layout.*
 import kotlinx.coroutines.launch
 
 
@@ -21,6 +28,15 @@ class SingleTalking : BaseFragment(), View.OnClickListener {
     var para: Para? = null
     lateinit var animationInAction: AnimationInAction
     var recognizer=0
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val callback=
+            requireActivity().onBackPressedDispatcher.addCallback(this){
+                val action= SingleTalkingDirections.actionSingleTalkingToListFragmant()
+                Navigation.findNavController(godSpeaking0).navigate(action)      }
+        callback.isEnabled
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,8 +63,8 @@ class SingleTalking : BaseFragment(), View.OnClickListener {
             1->activateSentence()
             else-> activateList()
         }
-
     }
+
 
     private fun previousIt() {
         var currentPage = para?.currentPage!!

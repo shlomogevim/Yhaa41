@@ -5,16 +5,30 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.addCallback
 import androidx.navigation.Navigation
 import com.example.yhaa41.R
 import com.example.yhaa41.ui.ListFragmantDirections
 import com.example.yhaa41.ui.SingleTalkingArgs
+import com.example.yhaa41.ui.SingleTalkingDirections
+import com.example.yhaa41.util.BaseFragment
 import kotlinx.android.synthetic.main.fragment_video_ftagment.*
+import kotlinx.android.synthetic.main.god_layout.*
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 /**
  * A simple [Fragment] subclass.
  */
-class VideoFtagment : Fragment() {
+class VideoFtagment : BaseFragment() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val callback=
+            requireActivity().onBackPressedDispatcher.addCallback(this){
+                val action= VideoFtagmentDirections.actionVideoFtagmentToSentenceListFragment()
+                Navigation.findNavController(webView).navigate(action)      }
+        callback.isEnabled
+    }
 
 
     override fun onCreateView(
@@ -27,14 +41,17 @@ class VideoFtagment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        webView.settings.javaScriptEnabled=true
-        var sourceNum=1
+        //launch {
+           //delay(1000)
+            webView.settings.javaScriptEnabled = true
+            var sourceNum = 1
 
-        arguments?.let {
-           sourceNum=VideoFtagmentArgs.fromBundle(it).videoNum
-        }
-        setSourceUrl(sourceNum)
-       bakeToListOfSentence()
+            arguments?.let {
+                sourceNum = VideoFtagmentArgs.fromBundle(it).videoNum
+            }
+            setSourceUrl(sourceNum)
+            backeToListOfSentence()
+      // }
     }
 
     private fun setSourceUrl(so:Int) {
@@ -47,8 +64,9 @@ class VideoFtagment : Fragment() {
         webView.loadUrl(st)
     }
 
-    private fun bakeToListOfSentence(){
-        val action=VideoFtagmentDirections.actionVideoFtagmentToSentenceListFragment2()
+
+    private fun backeToListOfSentence(){
+        val action=VideoFtagmentDirections.actionVideoFtagmentToSentenceListFragment()
         Navigation.findNavController(webView).navigate(action)
     }
 
