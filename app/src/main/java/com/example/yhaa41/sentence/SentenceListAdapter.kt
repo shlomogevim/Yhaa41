@@ -1,13 +1,13 @@
 package com.example.yhaa41.sentence
 
 import android.content.Context
+import android.content.Intent
 import android.content.res.Resources
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.yhaa41.R
 import com.example.yhaa41.util.Helper
@@ -36,12 +36,21 @@ class SentenceListAdapter(val context: Context, private var sentenceList: ArrayL
         holder.view.sentenceTextView.text = sentenceList[position].sentenceText
         holder.view.explainTextView.text = sentenceList[position].explainText
         setSentenceStyle(holder, position)
+
         holder.view.flowerPostIV.setOnClickListener {
-            /*val action1 = ListFragmantDirections.actionListFragmantToSentenceListFragment()
-                Navigation.findNavController(it).navigate(action1)*/
-            val action = SentenceListFragmentDirections.actionSentenceListFragmentToVideoFtagment()
-            action.setVideoNum(position + 1)
-            Navigation.findNavController(it).navigate(action)
+            /*val action =
+                SentenceListFragmentDirections.actionSentenceListFragmentToAndroidYoutubePlayerActivity()
+            action.setVidonum(position + 1)
+            Navigation.findNavController(it).navigate(action)*/
+            val intent=Intent(context,
+                AndroidYoutubePlayerActivity::class.java)
+            intent.putExtra("video",position+1)
+            context.startActivity(intent)
+
+
+            /* val action = SentenceListFragmentDirections.actionSentenceListFragmentToVideoFtagment()
+             action.setVideoNum(position + 1)
+             Navigation.findNavController(it).navigate(action)*/
         }
     }
 

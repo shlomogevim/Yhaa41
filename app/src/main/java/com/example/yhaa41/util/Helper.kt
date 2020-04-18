@@ -16,10 +16,10 @@ class Helper(val context: Context) {
     val pref = GetAndStoreData(context)
 
 
-
     fun activateHowSpeaking() {
         val talker = pref.currentTalk()
-        val anim = AnimatorInflater.loadAnimator(context,
+        val anim = AnimatorInflater.loadAnimator(
+            context,
             R.animator.alpha
         )
         val showPosition = pref.getShowPosition()
@@ -192,43 +192,45 @@ class Helper(val context: Context) {
 
     }
 
-    fun setSentenceView(view: View, position: Int){
+    fun setSentenceView(view: View, position: Int) {
 
     }
 
-    object Sent{
-        var sentList=ArrayList<Sentence>()
-        fun createSentList(){
-            var list= listOf<Sentence>(
+    object Sent {
+        var sentList = ArrayList<Sentence>()
+        fun createSentList() {
+            var list = listOf<Sentence>(
                 Sentence(
                     "בזמנים שהכול נשבר מסביב," +
-                            "\n"+
+                            "\n" +
                             "וכל גל נראה מאיים ואינסופי," +
-                            "\n"+
+                            "\n" +
                             "נזכר במשפט של אריק איינשטיין בערוב ימיו:",
                     "בסוף, מה נשאר לך" +
-                            "\n"+
+                            "\n" +
                             "רק אהבה."
                 ),
                 Sentence(
-                    "מהות האדם בשלש מילים:"+
-                            "\n"+
-                    "(לפי נזיר אנונימי לפני כמה מאות שנים)"+
-                            "\n"+
-                    "(אני חושב)",
+                    "מהות האדם בשלש מילים:" +
+                            "\n" +
+                            "(לפי נזיר אנונימי לפני כמה מאות שנים)" +
+                            "\n" +
+                            "(אני חושב)",
                     "תן לאהבתי להישמע"
                 ),
                 Sentence(
-                    "סטינג"+
-                            "\n"+
-                    "Shape of my heart",
-                    "אין לי הרבה פרצופים,"+
-                            "\n"+
+                    "סטינג" +
+                            "\n" +
+                            "Shape of my heart",
+                    "אין לי הרבה פרצופים," +
+                            "\n" +
                             "אני לובש רק מסכה אחת."
                 ),
                 Sentence(
-                    "זה המשפט הרביעי",
-                    "וזה ההסבר למשפט הרביעי"
+                    "הלכו אותם" +
+                            "\n" +
+                            "היינו שם",
+                    "שדות של זהב"
                 ),
                 Sentence(
                     "זה המשפט ההחמישי",
@@ -245,7 +247,6 @@ class Helper(val context: Context) {
     /*
     * I'm not a man of too many faces
 The mask I wear is one*/
-
 
 
     object Page {

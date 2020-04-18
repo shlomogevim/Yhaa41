@@ -55,6 +55,9 @@
             app:destination="@id/videoFtagment"
             app:enterAnim="@anim/fad_in"
             app:exitAnim="@anim/fad_out" />
+        <action
+            android:id="@+id/action_sentenceListFragment_to_androidYoutubePlayerActivity"
+            app:destination="@id/androidYoutubePlayerActivity" />
 
     </fragment>
     <fragment
@@ -72,4 +75,11 @@
             app:argType="integer"
             android:defaultValue="1" />
     </fragment>
+    <activity
+        android:id="@+id/androidYoutubePlayerActivity"
+        android:name="com.example.yhaa41.sentence.AndroidYoutubePlayerActivity"
+        android:label="activity_android_youtube_player"
+        tools:layout="@layout/activity_android_youtube_player" >
+
+    </activity>
 </navigation>
