@@ -11,6 +11,7 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.example.yhaa41.R
+import com.example.yhaa41.util.GetAndStoreData
 import com.example.yhaa41.util.Helper
 
 import com.github.rubensousa.gravitysnaphelper.GravitySnapHelper
@@ -20,6 +21,7 @@ import kotlinx.android.synthetic.main.fragment_sentence_list.*
  * A simple [Fragment] subclass.
  */
 class SentenceListFragment : Fragment() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
          val callback=
@@ -41,6 +43,8 @@ class SentenceListFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        val pref= context?.let { GetAndStoreData(it) }
+
         Helper.Sent.createSentList()
         var senteList = Helper.Sent.sentList
         val snapeHelper = GravitySnapHelper(Gravity.CENTER)
@@ -50,6 +54,8 @@ class SentenceListFragment : Fragment() {
         snapeHelper.attachToRecyclerView(recyclerViewPostId)
         recyclerViewPostId.adapter = context?.let { SentenceListAdapter(it, senteList) }
         recyclerViewPostId.adapter!!.notifyDataSetChanged()
+        val position= pref?.getSentencePage()
+        position?.let { recyclerViewPostId.scrollToPosition(it) }
 
        /* val action = SentenceListFragmentDirections.actionSentenceListFragmentToListFragmant()
         Navigation.findNavController(recyclerViewPostId).navigate(action)*/

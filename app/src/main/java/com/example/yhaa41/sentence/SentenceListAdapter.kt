@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.yhaa41.R
+import com.example.yhaa41.util.GetAndStoreData
 import com.example.yhaa41.util.Helper
 import kotlinx.android.synthetic.main.sentence_layout.view.*
 import kotlinx.android.synthetic.main.sentence_layout.view.sentenceTextView
@@ -17,6 +18,7 @@ import kotlinx.android.synthetic.main.sentence_layout.view.sentenceTextView
 
 class SentenceListAdapter(val context: Context, private var sentenceList: ArrayList<Sentence>) :
     RecyclerView.Adapter<SentenceListAdapter.SentenceViewHolder>() {
+    val pref=GetAndStoreData(context)
 
     fun updateSentenceList(newList: ArrayList<Sentence>) {
         sentenceList.clear()
@@ -52,6 +54,7 @@ class SentenceListAdapter(val context: Context, private var sentenceList: ArrayL
              action.setVideoNum(position + 1)
              Navigation.findNavController(it).navigate(action)*/
         }
+        pref.saveSentencePage(position)
     }
 
     private fun setSentenceStyle(holder: SentenceListAdapter.SentenceViewHolder, position: Int) {

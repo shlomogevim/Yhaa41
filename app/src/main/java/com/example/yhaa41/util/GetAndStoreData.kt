@@ -17,6 +17,7 @@ import com.example.yhaa41.util.Const.Companion.LASTTALKER
 import com.example.yhaa41.util.Const.Companion.LAST_PAGE
 import com.example.yhaa41.util.Const.Companion.PREFS_NAME
 import com.example.yhaa41.util.Const.Companion.RECOGNIZER
+import com.example.yhaa41.util.Const.Companion.SENTENCEPAGE
 import com.example.yhaa41.util.Const.Companion.SHOWPOSITION
 import com.example.yhaa41.util.Const.Companion.TALKLIST
 import com.example.yhaa41.util.Const.Companion.TESTMODE
@@ -37,7 +38,9 @@ class GetAndStoreData(context: Context) : AppCompatActivity() {
         val recogniger = getRecognizer()
         myPref.edit().putInt(CURRENT_PAGE + recogniger.toString(), index).apply()
     }
-
+    fun saveSentencePage(index: Int) {
+        myPref.edit().putInt(SENTENCEPAGE, index).apply()
+    }
     fun saveLastPage(index: Int) {
         myPref.edit().putInt(LAST_PAGE, index).apply()
     }
@@ -75,6 +78,7 @@ class GetAndStoreData(context: Context) : AppCompatActivity() {
         val recogniger = getRecognizer()
         return myPref.getInt(CURRENT_PAGE + recogniger.toString(), 1)
     }
+    fun getSentencePage(): Int = myPref.getInt(SENTENCEPAGE, 0)
     fun getLastPage(): Int = myPref.getInt(LAST_PAGE, 1)
     fun getCurentPost():Int=myPref.getInt(CURRENTSENTENCE,100)
     fun getInterval(): Int = myPref.getInt(INTERVAL, 0)
@@ -209,7 +213,7 @@ class GetAndStoreData(context: Context) : AppCompatActivity() {
                     arr = improveAr(ar)
 
                     if (arr.size > 6) {
-                        //  setToastMessage(st1)
+                          setToastMessage(st1)
                         Log.i("clima", "st1->$st1")
                     }
                     for (item in arr) {

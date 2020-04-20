@@ -4,8 +4,10 @@ import android.app.Activity
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
+import android.util.TypedValue
 import android.view.View
 import android.widget.TextView
+import com.example.yhaa41.R
 import com.example.yhaa41.room.Para
 import com.example.yhaa41.util.GetAndStoreData
 import com.example.yhaa41.util.Helper
@@ -77,7 +79,9 @@ class AnimationInAction(val context: Context): View.OnClickListener  {
                 tv.setTextColor(Color.parseColor("#ffffff"))
             }
 
-            tv.setTextSize(android.util.TypedValue.COMPLEX_UNIT_SP, talker.textSize)
+         //   tv.setTextSize(android.util.TypedValue.COMPLEX_UNIT_SP, talker.textSize)
+            tv.setTextSize(TypedValue.COMPLEX_UNIT_SP,context.resources.getDimension(R.dimen.text_size))
+
             val font = pref.getFonts()
             tv.typeface = helper.getTypeFace(font)
 

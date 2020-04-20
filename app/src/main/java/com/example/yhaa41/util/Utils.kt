@@ -1631,6 +1631,7 @@ class Const {
         const val TALKLIST = "talklist"
         const val RECOGNIZER = "recognizer"
         const val CURRENTSENTENCE = "currentsentene"
+        const val SENTENCEPAGE = "sentencepage"
 
         /*const val PREFS_NAME = "text1"
         const val TEXT_FILE= "text1/" + "te16A" + ".txt"*/

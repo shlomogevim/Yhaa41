@@ -137,6 +137,7 @@ class ParaHelper() {
             3 -> currenteFile = "show/" + "text9" + ".txt"
             4 -> currenteFile = "show/" + "text7" + ".txt"
             5 -> currenteFile = "show/" + "text8" + ".txt"
+            6 -> currenteFile = "show/" + "text100" + ".txt"
             else-> currenteFile = "show/" + "text15" + ".txt"
 
         }
