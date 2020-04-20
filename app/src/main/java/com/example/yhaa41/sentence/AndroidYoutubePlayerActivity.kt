@@ -1,23 +1,38 @@
 package com.example.yhaa41.sentence
 
+import android.annotation.SuppressLint
+import android.app.Activity
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.view.View
+import androidx.activity.addCallback
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.Navigation
 import com.example.yhaa41.R
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
 
 import kotlinx.android.synthetic.main.content_android_youtube_player.*
+import kotlinx.android.synthetic.main.fragment_sentence_list.*
 import java.util.regex.Pattern
 
 class AndroidYoutubePlayerActivity() : AppCompatActivity() {
 
-
+    @SuppressLint("SourceLockedOrientationActivity")
+    override fun onBackPressed() {
+         super.onBackPressed()
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+    }
+    @SuppressLint("SourceLockedOrientationActivity")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_android_youtube_player)
 
+
+
         var numV=intent.getIntExtra("video",1)
+
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
 
         third_party_player_view.getPlayerUiController().showFullscreenButton(true)
         third_party_player_view.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {

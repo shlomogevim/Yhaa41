@@ -46,7 +46,7 @@ class SentenceListFragment : Fragment() {
         val snapeHelper = GravitySnapHelper(Gravity.CENTER)
 
         recyclerViewPostId.layoutManager =
-            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, true)
         snapeHelper.attachToRecyclerView(recyclerViewPostId)
         recyclerViewPostId.adapter = context?.let { SentenceListAdapter(it, senteList) }
         recyclerViewPostId.adapter!!.notifyDataSetChanged()
